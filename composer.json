@@ -1,0 +1,12 @@
+{
+  "name": "BacLuc/createGryfiEinzahlungsschein",
+  "description": "create a pdf with a swiss einzahlungsschein",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lucius Bachmann",
+      "email": "lucius.bachmann@gmx.ch"
+    }
+  ]
+}
