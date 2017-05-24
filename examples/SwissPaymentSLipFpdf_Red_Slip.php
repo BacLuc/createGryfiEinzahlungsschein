@@ -46,7 +46,7 @@ foreach($lager as $name => $amount){
  */
 function createSlip($reason,$amount)
 {
-    $fPdf = new FPDF('P', 'mm', array(210,106));
+    $fPdf = new FPDF('P', 'mm', 'A4');//array(210,106)
 // Add OCRB font to FPDF
     $fPdf->AddFont('OCRB10');
 // Add page, don't break page automatically
@@ -73,17 +73,17 @@ function createSlip($reason,$amount)
 //$paymentSlipData->setWithPaymentReason(true);
 
 // Create a payment slip object, pass in the prepared data container
-    $paymentSlip = new RedPaymentSlip($paymentSlipData, 0, 0);//191
+    $paymentSlip = new RedPaymentSlip($paymentSlipData, 0, 191);//191
 // Create an instance of the FPDF implementation
     $paymentSlipFpdf = new PaymentSlipFpdf($fPdf, $paymentSlip);
 // "Print" the slip with its elements according to their attributes
     $paymentSlipFpdf->createPaymentSlip($paymentSlip);
 
-    $fPdf->SetXY(125, 10);
+    $fPdf->SetXY(125, 201);
     $fPdf->Cell(40, 6, $reason);
 
 // Output PDF named example_fpdf_red_slip.pdf to examples folder
-    $pdfName = str_replace(" ", "_", $reason) . '_einzahlungsschein.pdf';
+    $pdfName = str_replace(" ", "_", $reason) . '_einzahlungsschein_A4.pdf';
 
     $pdfPath = __DIR__ . DIRECTORY_SEPARATOR . $pdfName;
     $fPdf->Output($pdfPath);
