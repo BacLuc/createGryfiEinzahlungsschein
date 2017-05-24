@@ -117,3 +117,4 @@ nbdist/
 
 Würde .gitignore löschen
 .idea
+examples/**.pdf
